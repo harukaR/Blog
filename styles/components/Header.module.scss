@@ -19,6 +19,10 @@
             font-weight: 400;
             color: #abadaf;
             text-shadow: 1px 8px 3px rgb(14 51 29 / 15%);
+            transition: .5s;
+            &:hover{
+                text-shadow: none;
+            }
         }
     }
 }
