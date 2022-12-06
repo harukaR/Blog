@@ -6,7 +6,7 @@ import styles from '../../styles/Home.module.scss'
 import { Header } from './components/Header'
 import { client } from '../lib/client'
 
-export default function Home({blog}) {
+export default function Home({blog,category}) {
   return (
     <div className={styles.container}>
       <Header/>
@@ -15,6 +15,7 @@ export default function Home({blog}) {
       <article className={styles.article__list}>
         {blog.map((blog) => (
           <Link href={`/blog/${blog.id}`} className={styles.articleItem} key={blog.id}>
+            <p className={styles.artilceCategory}>{blog.category && `${blog.category.name}`}</p>
             {/* <Image src={blog.eyecatch.url} width={100} height={100} alt="ブログのアイキャッチ画像です"></Image> */}
             <div className={styles.gazou_content}>
               <p className={styles.gazou}></p>
@@ -37,9 +38,12 @@ export default function Home({blog}) {
 //SSGで取得
 export const getStaticProps = async () => {
   const data = await client.get({ endpoint: "blogs" });
+  // const category = await client.get({ endpoint: "categories" });
+
   return {
     props: {
       blog: data.contents,
+      // category:category.contents,
 
     },
   };
