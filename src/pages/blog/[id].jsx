@@ -1,15 +1,16 @@
 // pages/blog/[id].js
-import { client } from "../../lib/client";
 import styles from '../../../styles/components/Blog.module.scss'
-import { Header } from "../components/Header";
-import { renderToc } from "../../lib/render-toc";
-
+import Link from "next/link";
 
 //別ファイルに格納する
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+
+import { client } from "../../lib/client";
 import { TableOfContents } from "../components/TalbleOfContent";
+import { Header } from "../components/Header";
+import { renderToc } from "../../lib/render-toc";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -18,7 +19,6 @@ dayjs.extend(timezone);
 
 export default function BlogId({ blog }) {
   const toc = renderToc(blog.content);
-  console.log(toc);
   return (
     <>
       <div className={styles.container}>
