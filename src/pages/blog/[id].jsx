@@ -11,6 +11,8 @@ import { client } from "../../lib/client";
 import { TableOfContents } from "../components/TalbleOfContent";
 import { Header } from "../components/Header";
 import { renderToc } from "../../lib/render-toc";
+import { useRouter } from 'next/router';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -25,6 +27,7 @@ export default function BlogId({ blog }) {
         <Header/>
         <div className={styles.contentWrap}>
           <main className={styles.articleInner}>
+            <Breadcrumbs category={blog.category && `${blog.category.name}`} title={blog.title} />
             <h1 className={styles.articleTitle}>{blog.title}</h1>
             <div className={styles.articleContent}
               dangerouslySetInnerHTML={{

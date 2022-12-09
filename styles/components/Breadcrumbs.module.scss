@@ -1,0 +1,19 @@
+.breadcrumbsList{
+    display: flex;
+    list-style: none;
+    width: fit-content;
+    padding: 5px    0px 3px;
+    border-radius: 15px;
+    align-items: center;
+    gap: 10px;
+    .breadcrumbsListItem{
+        font-size: 14px;
+        span{
+            font-size: 14px;
+            display: flex;
+        }
+        .breadcrumbsListLink{
+            text-decoration: none;
+        }
+    }
+}
