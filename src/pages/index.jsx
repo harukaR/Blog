@@ -25,6 +25,17 @@ export default function Home({blog,category}) {
           </Link>
         ))}
       </article>
+      <div>
+      <ul>
+        {category.map((category) => (
+          <li key={category.id}>
+            <Link href={`/category/${category.id}`}>
+              {category.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      </div>
       
       </main>
 
@@ -38,12 +49,12 @@ export default function Home({blog,category}) {
 //SSGで取得
 export const getStaticProps = async () => {
   const data = await client.get({ endpoint: "blogs" });
-  // const category = await client.get({ endpoint: "categories" });
+  const category = await client.get({ endpoint: "categories" });
 
   return {
     props: {
       blog: data.contents,
-      // category:category.contents,
+      category:category.contents,
 
     },
   };
