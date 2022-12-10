@@ -5,6 +5,7 @@ export const TableOfContents = ({ toc }) => {
   return (
     <div className={styles.tocWrap}>
       <p className="TableOfContentsHead">目次</p>
+      
       <ul className={styles.toc}>
         {toc.map(data => (
           <li key={data.id} className={styles.tocItem}>
@@ -17,3 +18,4 @@ export const TableOfContents = ({ toc }) => {
     </div>
   );
 };
+
