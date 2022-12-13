@@ -10,8 +10,18 @@
     // border-bottom: 3px solid rgba( 255, 255, 255);
     display: flex;
     align-items: center;
+    justify-content: center;
+    .container{
+        a{
+            display: block;
+        }
+    }
+    .btnContainer{
+        position: fixed ;
+    }
     &__wrap{
         padding: 0 1em;
+        margin-right: auto;
         .backHome{
             text-decoration: none;
         }
@@ -23,37 +33,6 @@
             &:hover{
                 text-shadow: none;
             }
-        }
-        .drawerMenu{
-            position: absolute;
-            right: 0;
-            top: 30px;
-            right: 55px;
-            margin: 0 0 0 auto;
-            background: #F1EEFC;
-            
-        }
-        .drawerMenuButton{
-            border: unset;
-            display: block;
-            width: 50%;
-            background: #F1EEFC;
-            box-shadow:  5px 5px 10px #d4d1de,
-            -5px -5px 10px #ffffff;
-            border-radius: 15px;
-            margin: 0 auto;
-        }
-        .menu{
-            color: #7966ff;
-            padding: .5em 0;
-        }
-        .drawerMenuList{
-            background: #F1EEFC;
-            padding: 1em 2em;
-            list-style: none;
-            margin-top: 10px;
-            border: solid 2px #fff;
-            border-radius: 15px;
         }
     }
 }
