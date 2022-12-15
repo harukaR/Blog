@@ -9,7 +9,7 @@ import { client } from '../lib/client'
 export default function Home({blog,category}) {
   return (
     <div className={styles.container}>
-      <Header category={blog.category && `${blog.category.name}`} title={blog.title}/>
+      <Header/>
 
       <main className={styles.main}>
         <article className={styles.article__list}>

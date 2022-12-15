@@ -37,13 +37,18 @@ const sideVariants = {
 
 
 
-export const Header = memo(function HeaderComponents() {
+export const Header = memo(function HeaderComponents(props) {
   const [open, cycleOpen] = useCycle(false, true);
+  const {category} = props;
 
+  console.log(category)
     return(
         <header className={styles.header}>
             {/* <div className={styles.drawer}> */}
-            <AnimatePresence>
+            {/* <div className={styles.btnContainer}>
+        <button onClick={cycleOpen}>{open ? "Close" : "Open"}</button>
+      </div> */}
+            {/* <AnimatePresence>
         {open && (
           <motion.aside
             initial={{ width: 0 }}
@@ -54,6 +59,7 @@ export const Header = memo(function HeaderComponents() {
               width: 0,
               transition: { delay: 0.7, duration: 0.3 }
             }}
+            className={styles.aside}
           >
             <motion.div
               className={styles.container}
@@ -75,10 +81,8 @@ export const Header = memo(function HeaderComponents() {
             </motion.div>
           </motion.aside>
         )}
-      </AnimatePresence>
-      <div className="btn-container">
-        <button onClick={cycleOpen}>{open ? "Close" : "Open"}</button>
-      </div>
+      </AnimatePresence> */}
+
         
         <div className={styles.header__wrap}>
           <div>
