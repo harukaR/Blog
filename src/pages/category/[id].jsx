@@ -6,7 +6,7 @@ import { client } from '../../lib/client'
 import { Header } from "../components/Header";
 
 
-export default function CategoryId({ blog,category}) {
+export default function CategoryId({ blog}) {
   // カテゴリーに紐付いたコンテンツがない場合に表示
   if (blog.length === 0) {
     return <div>ブログコンテンツがありません</div>;
@@ -15,15 +15,7 @@ export default function CategoryId({ blog,category}) {
     <>
         <Header/>
         <main className={styles.main}>
-        <ul>
-        {category.map((category) => (
-          <li key={category.id}>
-            <Link href={`/category/${category.id}`}>
-              <p>{category.name}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+        <p>{blog[0].category.name}</p>
         <article className={styles.article__list}>
          {blog.map((blog) => (
               <Link href={`/blog/${blog.id}`} className={styles.articleItem} key={blog.id}>
@@ -33,6 +25,7 @@ export default function CategoryId({ blog,category}) {
                   <p className={styles.articleTitle}>{blog.title}</p>
                   <p className={styles.desc}>{blog.description}</p>
               </Link>
+                
             ))}
         </article>
       </main>
@@ -53,11 +46,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const data = await client.get({ endpoint: "blogs", queries: { filters: `category[equals]${id}` } });
-  const categoryData = await client.get({ endpoint: "categories" });
   return {
     props: {
       blog: data.contents,
-      category: categoryData.contents,
     },
   };
 };

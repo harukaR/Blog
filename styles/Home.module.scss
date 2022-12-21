@@ -3,7 +3,6 @@
     max-width:1280px;
     width: 100%;
     margin: 0 auto;
-    display: flex;
     justify-content: center;
     .article__list{
         display: grid;
@@ -13,6 +12,7 @@
         width: 100%;
         margin-top: 3em;
         flex-wrap: wrap;
+        margin: 0 auto;
         .articleItem{
             list-style: none;
             box-shadow:  5px 5px 10px #d4d1de,
