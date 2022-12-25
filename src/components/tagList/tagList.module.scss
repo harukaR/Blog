@@ -1,0 +1,18 @@
+.slideWrap{
+    max-width: 500px;
+    width: 100%;
+    margin: 5em auto 3em auto;
+    .tagIconBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .Icon{
+            border-radius: 50%;
+            box-shadow: 5px 5px 10px #d4d1de, -5px -5px 10px #ffffff;
+            border: solid #fff 3px;
+        }
+        .tagName{
+            font-size: 11px;
+        }
+    }
+}

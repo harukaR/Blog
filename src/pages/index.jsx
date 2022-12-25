@@ -1,10 +1,13 @@
+import Link from "next/link"
 
 
 export default function Home() {
   return (
     <>
      <h1>Haruka-Blog</h1>
-     <p><a href="">のぞいてみる</a></p>
+     <Link href='/blog'>
+      <p>のぞいてみる</p>
+     </Link>
     </>
   )
   

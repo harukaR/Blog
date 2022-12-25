@@ -1,10 +1,10 @@
-import styles from '../../../styles/components/Blog.module.scss'
+import styles from 'components/tableOfContents/tableOfContents.module.scss'
 
 
 export const TableOfContents = ({ toc }) => {
   return (
     <div className={styles.tocWrap}>
-      <p className="TableOfContentsHead">目次</p>
+      <p className={styles.TableOfContentsHead}>目次</p>
       
       <ul className={styles.toc}>
         {toc.map(data => (

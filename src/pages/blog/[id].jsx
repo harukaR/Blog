@@ -1,5 +1,5 @@
 // pages/blog/[id].js
-import styles from '../../../styles/components/Blog.module.scss'
+import styles from 'pages/blog/blog.module.scss'
 import Link from "next/link";
 
 //別ファイルに格納する
@@ -8,19 +8,19 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
 import { client } from "../../lib/client";
-import { TableOfContents } from "../components/TalbleOfContent";
-import { Header } from "../components/Header";
+import { TableOfContents } from "components/tableOfContents/TableOfContents"
+import { Header } from "components/header/Header"
 import { renderToc } from "../../lib/render-toc";
-import { useRouter } from 'next/router';
-import { Breadcrumbs } from '../components/Breadcrumbs';
+import { Breadcrumbs } from 'components/Breadcrumbs/Breadcrumbs';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
 
 
-export default function BlogId({ blog }) {
+export default function BlogId({ blog,category }) {
   const toc = renderToc(blog.content);
+  console.log(category.id)
   return (
     <>
       <div className={styles.container}>
@@ -41,13 +41,10 @@ export default function BlogId({ blog }) {
                 <p className={styles.icon}><span class="material-icons">create</span>公開日:{formatDate(blog.publishedAt)}</p>
               </li>
               <li>
-              <p className={styles.icon}><span class="material-icons">edit_note</span>更新日:{formatDate(blog.updatedAt)}</p>
+              <p className={styles.icon}><span class="material-icons">update</span>更新日:{formatDate(blog.updatedAt)}</p>
               </li>
             </ul>
             <TableOfContents toc={toc} />
-            <div>
-          
-            </div>
           </aside> 
         </div>
       </div>
@@ -59,7 +56,6 @@ export default function BlogId({ blog }) {
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: "blogs" });
-
   const paths = data.contents.map((content) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
@@ -68,10 +64,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const data = await client.get({ endpoint: "blogs", contentId: id });
+  const category = await client.get({ endpoint: "categories" });
 
   return {
     props: {
       blog: data,
+      category:category
     },
   };
 };

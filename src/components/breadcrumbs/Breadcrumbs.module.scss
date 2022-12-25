@@ -2,10 +2,11 @@
     display: flex;
     list-style: none;
     width: fit-content;
-    padding: 5px    0px 3px;
+    padding: 5px 0px 3px;
     border-radius: 15px;
     align-items: center;
     gap: 10px;
+    margin-bottom: 5em;
     .breadcrumbsListItem{
         font-size: 14px;
         span{

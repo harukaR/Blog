@@ -1,9 +1,10 @@
 // pages/category/[id].js
 import Link from "next/link";
+// import styles from '../../../styles/Home.module.scss'
 import styles from '../../../styles/Home.module.scss'
 
 import { client } from '../../lib/client'
-import { Header } from "../components/Header";
+import { Header } from "components/header/Header";
 
 
 export default function CategoryId({ blog}) {

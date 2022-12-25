@@ -1,10 +1,10 @@
 .blogWrap{
     .main{
-        padding-top: 80px;
         max-width:1280px;
         width: 100%;
         margin: 0 auto;
         justify-content: center;
+        padding-top: 200px;
         .articleList{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -16,13 +16,13 @@
             margin: 0 auto;
             .articleItem{
                 list-style: none;
-                box-shadow:  5px 5px 10px #d4d1de,
-                -5px -5px 10px #ffffff;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
                 padding: 1.5em 2em;
                 border-radius: 15px;
                 display: block;
                 text-decoration: none;
                 position: relative;
+                background: #fff;
                 .artilceCategory{
                     font-size: 11px;
                     display: inline-block;
@@ -32,15 +32,13 @@
                     position: absolute;
                     top: 10px;
                     left: 10px;
-                    color: #7966ff;
+                    color: #dac2b6;
                     box-shadow:  5px 5px 10px #d4d1de,
                     -5px -5px 10px #ffffff;
                 }
                 .articleImage{
                     width: 100px;
                     height: 100px;
-                    box-shadow: 5px 5px 10px #d4d1de, -5px -5px 10px #ffffff;
-                    border: solid #fff 3px;
                     margin: 0 auto;
                     border-radius: 50px;
                     .articleImage-icon{
@@ -62,6 +60,45 @@
                 margin-top: .5em;
                 color: #404953;
             }
+        }
+    }
+}
+.container{
+    .contentWrap{
+        display: flex;
+        color: #404953;
+        justify-content: center;
+        .articleInner{
+            max-width: 1000px;
+            width: 100%;
+            padding: 130px 1em;
+            .articleTitle{
+                margin-bottom: 1em;
+            }
+            h2,h3,h4{
+                margin: 1.5em 0 .5em 0;
+            }
+            p{
+                margin-top: 1em;
+            }
+        }
+    }
+    .asideWrap{
+        height: fit-content;
+        box-shadow: 5px 5px 10px #d4d1de, -5px -5px 10px #ffffff;
+        position: sticky;
+        top: 250px;
+        padding: 1em;
+        border-radius: 15px;
+        .overview{
+            list-style: none;
+            p{
+                font-size: 11px;
+                span{
+                    font-size: 14px;
+                }
+            }
+            
         }
     }
 }

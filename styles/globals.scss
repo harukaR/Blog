@@ -8,10 +8,25 @@ html,
 
 body {
   height: 100vh;
-  background: #F1EEFC;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   // background: #eae3f7;
 }
-
-
-
+//slider上書き用
+.splide__arrow--prev {
+  left: -1em !important;
+}
+.splide__pagination{
+  display: none !important;
+}
+.splide__arrow{
+  background: unset !important;
+}
+.splide__arrow--next {
+  right: -1em !important;
+}
+.splide__pagination{
+  bottom: -10px !important;
+}
+.splide__arrow svg{
+  fill: #7966ff !important;
+}
