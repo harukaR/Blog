@@ -20,14 +20,15 @@ dayjs.extend(timezone);
 
 export default function BlogId({ blog,category }) {
   const toc = renderToc(blog.content);
-  console.log(category.id)
+  console.log(blog.category.id)
+
   return (
     <>
       <div className={styles.container}>
         <Header/>
         <div className={styles.contentWrap}>
           <main className={styles.articleInner}>
-            <Breadcrumbs category={blog.category && `${blog.category.name}`} title={blog.title} />
+            <Breadcrumbs category={blog.category && `${blog.category.name}`} title={blog.title} hrefPath={`/category/${blog.category.id}`} />
             <h1 className={styles.articleTitle}>{blog.title}</h1>
             <div className={styles.articleContent}
               dangerouslySetInnerHTML={{
@@ -56,6 +57,7 @@ export default function BlogId({ blog,category }) {
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: "blogs" });
+
   const paths = data.contents.map((content) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };

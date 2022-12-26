@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
       props: {
         blog: data.contents,
         category:category.contents,
-        totalCount: data.totalCount
+        totalCount: data.totalCount,
       },
     };
   };
