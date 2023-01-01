@@ -5,24 +5,25 @@ import Link from 'next/link'
 import styles from './blog.module.scss'
 
 import { Header } from "components/header/Header"
-import { Pagination } from 'components/pagination/Pagination'
-import { client } from '../../lib/client'
+import { BasicPagination } from 'components/basicPagination/BasicPagination'
+import { client } from 'lib/client'
+
 
 export default function Blog({blog,category,totalCount}){
     return(
         <>
             <div className={styles.blogWrap}>
-              <Header/>
+                <Header/>
               <main className={styles.main}>
-                { <ul className={styles.categoryList}>
+                 <ul className={styles.categoryList}>
                     {category.map((category) => (
                       <li key={category.id}>
-                        <Link href={`/category/${category.id}`}>
+                        <Link href={`blog/${category.id}`}>
                           {category.name}
                         </Link>
                       </li>
                     ))}
-                 </ul> }
+                 </ul> 
                   <article className={styles.articleList}>
                     {blog.map((blog) => (
                       <Link href={`/blog/${blog.id}`} className={styles.articleItem} key={blog.id}>
@@ -36,7 +37,7 @@ export default function Blog({blog,category,totalCount}){
                       </Link>
                     ))}   
                   </article>
-                  <Pagination totalCount={totalCount} />
+                  <BasicPagination totalCount={totalCount} />
               </main>
             </div>
         </>

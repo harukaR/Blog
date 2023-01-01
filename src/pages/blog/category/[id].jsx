@@ -1,13 +1,13 @@
 // pages/category/[id].js
 import Link from "next/link";
 // import styles from '../../../styles/Home.module.scss'
-import styles from '../../../styles/Home.module.scss'
+import styles from '/styles/Home.module.scss'
 
-import { client } from '../../lib/client'
+import { client } from 'lib/client'
 import { Header } from "components/header/Header";
 
 
-export default function CategoryId({ blog}) {
+export default function CategoryId({blog}) {
   // カテゴリーに紐付いたコンテンツがない場合に表示
   if (blog.length === 0) {
     return <div>ブログコンテンツがありません</div>;
@@ -38,7 +38,7 @@ export default function CategoryId({ blog}) {
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: "categories" });
 
-  const paths = data.contents.map((content) => `/category/${content.id}`);
+  const paths = data.contents.map((content) => `/blog/category/${content.id}`);
   return { paths, fallback: false };
 
   
