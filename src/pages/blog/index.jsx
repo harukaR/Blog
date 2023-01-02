@@ -18,7 +18,7 @@ export default function Blog({blog,category,totalCount}){
                  <ul className={styles.categoryList}>
                     {category.map((category) => (
                       <li key={category.id}>
-                        <Link href={`blog/${category.id}`}>
+                        <Link href={`blog/category/${category.id}`}>
                           {category.name}
                         </Link>
                       </li>
