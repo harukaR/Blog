@@ -39,7 +39,6 @@ export const ListMenu = () => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
-        className={styles.aaaa}
       >
         {pages.map((item)=>{
           return(
