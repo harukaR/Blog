@@ -19,9 +19,8 @@ export const Header = memo(function HeaderComponents() {
                 <h1>Haruka-blog</h1>
             </Link>
           </div>
+          <ListMenu className={styles.categoryMenu}/>
         </div>
-        {/* //propsでカテゴリを受け取る */}
-        <ListMenu/>
         </header>
     )
 });
