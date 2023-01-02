@@ -1,5 +1,16 @@
 .buttonName{
     text-transform: unset !important;
+    color: #000 !important;
+    font-family: unset !important;
+    transition:.5s;
+    &:hover{
+        background: unset !important;
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
 }
 .tagItem{
     display: block;

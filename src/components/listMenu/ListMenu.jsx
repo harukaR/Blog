@@ -16,8 +16,8 @@ export const ListMenu = () => {
     setAnchorEl(null);
   };
 
-  const pages = [{link:'/',value:'React'},{link:'/',value:'Next.js'},{link:'/',value:'Web'}]
-  console.log(pages[0].value)
+  const pages = [{link:'/',value:'Development'},{link:'/',value:'Web'},{link:'/',value:'SEO'}]
+
 
   return (
     <div>
@@ -29,7 +29,7 @@ export const ListMenu = () => {
         onClick={handleClick}
         className={styles.buttonName}
       >
-        tags
+        Categories
       </Button>
       <Menu
         id="basic-menu"
@@ -39,12 +39,8 @@ export const ListMenu = () => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
+        className={styles.aaaa}
       >
-        {/* <Link href="/" onClick={handleClose}>React</Link>
-        <MenuItem onClick={handleClose}>React</MenuItem>
-        <MenuItem onClick={handleClose}>Typescript</MenuItem>
-        <MenuItem onClick={handleClose}></MenuItem> */}
-        <Link href="/" onClick={handleClose}>React</Link>
         {pages.map((item)=>{
           return(
             <Link key={item.id} href='/' className={styles.tagItem}>{item.value}</Link>
